@@ -1,12 +1,15 @@
+Manifest.toml
 
-src/*.cov
-test.jl
+/doc/build/
+/stylesheets/bootswatch/
+
 examples/figures/
 examples/*.md
 examples/*.pdf
 examples/*.html
 examples/*.rst
 examples/*.tex
+
 test/**/cache
 test/**/figures
 test/documents/output/gadfly_formats_test.txt
@@ -20,17 +23,7 @@ test/**/chunk_options.jl
 test/**/*.ipynb
 !test/**/*ref.*
 
-doc/build
-doc/site
-stable/
-doc/Manifest.toml
-Manifest.toml
-
-tmp/
-.idea
 *.*~
 *.aux
 *.log
 *.out
-\#*\#
-.juliahistory
