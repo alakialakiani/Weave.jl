@@ -55,6 +55,15 @@ end
 
 get_highlight_theme(::Nothing) = Highlights.Themes.DefaultTheme
 get_highlight_theme(highlight_theme::Type{<:Highlights.AbstractTheme}) = highlight_theme
+function get_highlight_theme(s)
+    themes = list_highlight_themes()
+    s = string(s)
+    i = findfirst(themes) do theme
+        occursin(Regex(s, "i"), string(theme))
+    end
+    isnothing(i) && error("no highlight theme found for $s")
+    return themes[i]
+end
 
 get_template(::Nothing, tex::Bool = false) =
     Mustache.template_from_file(normpath(TEMPLATE_DIR, tex ? "md2pdf.tpl" : "md2html.tpl"))
